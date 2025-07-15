@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v17.0\TextTemplating\Microsoft.TextTemplating.targets" />
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <Nullable>enable</Nullable>
     <!--Avalonia doesen't support TrimMode=link currently,but we are working on that https://github.com/AvaloniaUI/Avalonia/issues/6892 -->
     <TrimMode>copyused</TrimMode>
@@ -14,8 +14,6 @@
     <RootNamespace>SquadOV</RootNamespace>
     <AssemblyName>SquadOV</AssemblyName>
     <AssemblyVersion>0.1</AssemblyVersion>
-    <TransformOnBuild>true</TransformOnBuild>
-    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
     <ApplicationIcon>Assets\squadov.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
@@ -49,7 +47,6 @@
     <Compile Update="Models\Localization\Localization.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Localization.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -60,16 +57,6 @@
     <None Include="Models\Localization\Localization.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Localization.tt</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Models\Localization\Localization.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Localization.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 </Project>
