@@ -46,6 +46,7 @@
     
     <c:Base64PictureConverter x:Key="base64PictureConverter"/>
     <c:AssetConverter x:Key="assetConverter"/>
+    <c:FavoriteConverter x:Key="favoriteConverter"/>
   </Application.Resources>
 
   <TrayIcon.Icons>
