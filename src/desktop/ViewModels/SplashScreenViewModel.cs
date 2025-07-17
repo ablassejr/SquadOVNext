@@ -83,6 +83,11 @@ namespace SquadOV.ViewModels
                 // TODO: Make sure we can actually use this identity on the P2P network.
             }
 
+            // Register VOD services for local storage and sharing
+            LoadingMessage = "Loading VOD services...";
+            Locator.CurrentMutable.RegisterConstant(new Services.Vod.LocalVodStorageService(), typeof(Services.Vod.IVodStorageService));
+            Locator.CurrentMutable.RegisterConstant(new Services.Vod.LocalVodSharingService(), typeof(Services.Vod.IVodSharingService));
+
             // Hotkey service should probably be registered last so the user doesn't randomly hit a hotkey that requires
             // something else (e.g. the engine) to be initialized.
             Locator.CurrentMutable.RegisterConstant(new Services.System.HotkeyService(), typeof(Services.System.IHotkeyService));
